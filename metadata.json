@@ -1,0 +1,8 @@
+{
+  "name": "Smart Student Attendance System (MERN)",
+  "description": "Full-stack MERN student attendance management system with real-time tracking, subject & student CRUD, defaulter analytics, role-based access, and complete 8-section Academic Project Report.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
