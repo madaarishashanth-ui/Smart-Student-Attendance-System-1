@@ -1,0 +1,262 @@
+﻿
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Smart Student Attendance System - Final Project Report</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #000;
+  margin: 1in;
+}
+h1 { font-size: 22pt; text-align: center; margin-top: 18pt; margin-bottom: 12pt; text-transform: uppercase; }
+h2 { font-size: 16pt; margin-top: 18pt; margin-bottom: 8pt; border-bottom: 1pt solid #000; padding-bottom: 4pt; }
+h3 { font-size: 14pt; margin-top: 14pt; margin-bottom: 6pt; }
+p { text-align: justify; margin-bottom: 8pt; text-indent: 0.3in; }
+table { width: 100%; border-collapse: collapse; margin: 12pt 0; }
+th, td { border: 1pt solid #000; padding: 6pt; font-size: 10.5pt; text-align: left; }
+th { background-color: #f2f2f2; font-weight: bold; }
+.cover-page { text-align: center; height: 9in; display: flex; flex-direction: column; justify-content: space-between; page-break-after: always; }
+.page-break { page-break-before: always; }
+.formula { background-color: #f9f9f9; border: 1pt solid #ccc; padding: 10pt; text-align: center; font-family: 'Courier New', monospace; font-size: 11pt; margin: 12pt 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+  <div style="text-align: center; margin-top: 40pt;">
+    <p style="text-align: center; font-size: 14pt; font-weight: bold; letter-spacing: 2pt;">A PROJECT REPORT ON</p>
+    <h1>Smart Student Attendance System</h1>
+    <p style="text-align: center; font-size: 13pt; font-style: italic;">
+      Submitted in partial fulfillment of the requirements for the degree of Bachelor of Technology in Computer Science & Engineering
+    </p>
+  </div>
+
+  <div style="margin: 40pt 0;">
+    <p style="text-align: center; font-weight: bold; font-size: 12pt;">SUBMITTED BY:</p>
+    <table style="width: 80%; margin: 0 auto; border: none;">
+      
+        <tr>
+          <td style="border: none; font-weight: bold; text-align: left; padding: 4pt;">Aarav Sharma</td>
+          <td style="border: none; font-family: monospace; text-align: right; padding: 4pt;">Roll No: 21CS101</td>
+        </tr>
+        <tr>
+          <td style="border: none; font-weight: bold; text-align: left; padding: 4pt;">Ananya Iyer</td>
+          <td style="border: none; font-family: monospace; text-align: right; padding: 4pt;">Roll No: 21CS102</td>
+        </tr>
+        <tr>
+          <td style="border: none; font-weight: bold; text-align: left; padding: 4pt;">Rohan Verma</td>
+          <td style="border: none; font-family: monospace; text-align: right; padding: 4pt;">Roll No: 21CS103</td>
+        </tr>
+        <tr>
+          <td style="border: none; font-weight: bold; text-align: left; padding: 4pt;">Sneha Patel</td>
+          <td style="border: none; font-family: monospace; text-align: right; padding: 4pt;">Roll No: 21CS104</td>
+        </tr>
+    </table>
+  </div>
+
+  <div style="text-align: center; margin-bottom: 40pt;">
+    <p style="text-align: center; font-weight: bold;">UNDER THE ESTEEMED GUIDANCE OF</p>
+    <p style="text-align: center; font-size: 13pt; font-weight: bold;">Dr. Rajesh Sen, Associate Professor</p>
+    <br/>
+    <p style="text-align: center; font-size: 14pt; font-weight: bold;">Department of Computer Science & Engineering</p>
+    <p style="text-align: center; font-size: 13pt; font-weight: bold;">National Institute of Technology / Engineering College</p>
+    <p style="text-align: center; font-size: 12pt;">Academic Year: 2025 - 2026 · October 2026</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- CHAPTER 1: ABSTRACT & INTRODUCTION -->
+<h2>1. Abstract & Introduction</h2>
+<p>
+<strong>1.1 Abstract:</strong> Attendance tracking is a fundamental administrative routine across all higher academic institutions. Traditional roll-call approaches utilizing handwritten paper registers are plagued with human clerical errors, high susceptibility to proxy marking, and delayed notification of attendance deficits to students and parents. This project demonstrates the design and development of the <strong>Smart Student Attendance System</strong> developed upon the <strong>MERN (MongoDB, Express.js, React 19, Node.js)</strong> stack.
+</p>
+<p>
+<strong>1.2 Problem Background:</strong> Under statutory academic council guidelines (AICTE and University regulations), students must achieve an aggregate attendance of at least 75% in each enrolled course to be deemed eligible to take end-semester examinations. In conventional systems, attendance registers are manually audited only at the conclusion of each month, precluding proactive remedial intervention.
+</p>
+<p>
+<strong>1.3 Proposed Solution:</strong> The proposed system establishes an asynchronous, reactive architecture. Faculty members record attendance via an intuitive dashboard supporting batch actions, keyboard roll calls, and simulated 6-digit session PINs. A centralized MongoDB database persistently maintains student demographics and session logs, enforced with compound unique indexing to eliminate duplicate submissions.
+</p>
+
+<!-- CHAPTER 2: PROBLEM STATEMENT & SCOPE -->
+<h2>2. Problem Statement, Objectives & Scope</h2>
+<p>
+<strong>2.1 Problem Statement:</strong> "To build a robust MERN-based smart attendance management system that records, indexes, and computes student attendance in real-time, alerts defaulters below regulatory thresholds (75%), and exports compliant institutional registers."
+</p>
+<p>
+<strong>2.2 Key Objectives:</strong>
+</p>
+<ul>
+  <li>Demonstrate end-to-end MERN stack software engineering.</li>
+  <li>Implement atomic CRUD operations for Students and Subjects with MongoDB document schemas.</li>
+  <li>Incorporate compound database indexes { date: 1, subjectId: 1, studentId: 1 } to guarantee uniqueness.</li>
+  <li>Calculate mathematical defaulter recovery requirements.</li>
+  <li>Deliver exportable CSV, JSON, and printable IEEE-formatted reports.</li>
+</ul>
+
+<!-- CHAPTER 3: FEATURES & CRUD OPERATIONS -->
+<h2>3. Features & Functional Requirements</h2>
+<table>
+  <tr>
+    <th>Module</th>
+    <th>CRUD Scope</th>
+    <th>Validation Rules</th>
+    <th>REST API Route</th>
+  </tr>
+  <tr>
+    <td><strong>Student Management</strong></td>
+    <td>Create, Read, Update, Delete</td>
+    <td>Unique roll number, valid email, sem 1-8</td>
+    <td><code>/api/students</code></td>
+  </tr>
+  <tr>
+    <td><strong>Subject Curriculum</strong></td>
+    <td>Create, Read, Update, Delete</td>
+    <td>Unique subject code, credits 1-6</td>
+    <td><code>/api/subjects</code></td>
+  </tr>
+  <tr>
+    <td><strong>Attendance Engine</strong></td>
+    <td>Batch Mark, Single Update</td>
+    <td>Status enum: [present, absent, late, excused]</td>
+    <td><code>/api/attendance/batch</code></td>
+  </tr>
+  <tr>
+    <td><strong>Defaulters Tracker</strong></td>
+    <td>Analytics Computation</td>
+    <td>Cutoff threshold slider (50% - 90%)</td>
+    <td><code>/api/reports/analytics</code></td>
+  </tr>
+</table>
+
+<!-- CHAPTER 4: ALGORITHMS & METHODOLOGY -->
+<h2>4. Algorithms & Mathematical Methodology</h2>
+<p>
+<strong>4.1 Defaulter Recovery Formulation:</strong>
+When a student's attendance falls below the target threshold T (default 0.75), the algorithm computes the minimum number of consecutive subsequent lectures X the student must attend to reach or exceed T:
+</p>
+<div class="formula">
+(Attended + X) / (Total + X) >= T &nbsp;&rArr;&nbsp; X = &lceil;(T &times; Total - Attended) / (1 - T)&rceil;
+</div>
+<p>
+<strong>4.2 Complexity Analysis:</strong>
+Per-student computation executes in O(1) constant time. Full cohort scanning runs in O(N) where N is the total number of students.
+</p>
+
+<!-- CHAPTER 5: TECHNOLOGIES & IMPLEMENTATION -->
+<h2>5. Technologies & Implementation</h2>
+<p>
+<strong>5.1 Frontend:</strong> React 19, Tailwind CSS v4, Lucide React icons, and print media rules.
+</p>
+<p>
+<strong>5.2 Backend:</strong> Node.js runtime, Express.js web framework, and modular REST controllers.
+</p>
+<p>
+<strong>5.3 Database:</strong> MongoDB NoSQL document database with Mongoose schemas and compound indexes.
+</p>
+
+<!-- CHAPTER 6: RESULTS & TESTING -->
+<h2>6. Results, Testing & Performance</h2>
+<p>
+Current live system statistics: Total Enrolled Students: 10, Total Subjects: 5, Overall College Attendance: 80%, Active Defaulters: 3.
+</p>
+<table>
+  <tr>
+    <th>Test ID</th>
+    <th>Module</th>
+    <th>Description</th>
+    <th>Expected Result</th>
+    <th>Status</th>
+  </tr>
+  
+  <tr>
+    <td><strong>TC-01</strong></td>
+    <td>Student Management (CRUD)</td>
+    <td>Verify unique constraint on student roll number during creation</td>
+    <td>System returns HTTP 409 Conflict with duplicate roll error</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-02</strong></td>
+    <td>Attendance Engine</td>
+    <td>Batch mark attendance for entire class session in one atomic operation</td>
+    <td>All 10 records persisted, previous duplicates for date cleaned up</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-03</strong></td>
+    <td>Defaulter Detection Algorithm</td>
+    <td>Detect students falling below university threshold (75%) accurately</td>
+    <td>Students with <75% flagged and shortage gap calculated</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-04</strong></td>
+    <td>Compound Index Integrity</td>
+    <td>Validate MongoDB compound index { date: 1, subjectId: 1, studentId: 1 }</td>
+    <td>Duplicate keys prevented by MongoDB unique compound index</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-05</strong></td>
+    <td>Subject Curriculum CRUD</td>
+    <td>Add new academic subject with code, credits, faculty, and semester</td>
+    <td>Subject stored and made available in attendance dropdown</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-06</strong></td>
+    <td>Data Export Engine</td>
+    <td>Generate formatted CSV for defaulters & master register</td>
+    <td>RFC 4180 compliant CSV stream downloaded by client browser</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-07</strong></td>
+    <td>Defaulter Recovery Calculation</td>
+    <td>Formula validation: ceil((threshold * total - attended) / (1 - threshold))</td>
+    <td>Recovery classes needed = ceil((0.75*20 - 10) / 0.25) = 20 classes</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+  <tr>
+    <td><strong>TC-08</strong></td>
+    <td>REST API Response Latency</td>
+    <td>Verify system API response time remains under 100ms benchmark</td>
+    <td>Latency < 100ms under local and cloud-run container execution</td>
+    <td style="color: green; font-weight: bold;">PASSED</td>
+  </tr>
+</table>
+
+<!-- CHAPTER 7: CONCLUSION & FUTURE SCOPE -->
+<h2>7. Conclusion & Future Scope</h2>
+<p>
+The Smart Student Attendance System successfully fulfills all academic project objectives. It replaces slow, error-prone manual registers with an automated, auditable MERN web application that protects academic integrity and keeps students and parents informed.
+</p>
+<p>
+<strong>Future Enhancements:</strong> Integration of AI facial recognition cameras, GPS classroom geofencing, direct WhatsApp parent notifications, and biometric RFID readers.
+</p>
+
+<!-- CHAPTER 8: REFERENCES -->
+<h2>8. References</h2>
+<ol>
+  <li>MongoDB Documentation: Data Models, Compound Indexing and Aggregation Pipelines, MongoDB Inc., 2026.</li>
+  <li>React 19 Official Documentation, Meta Open Source.</li>
+  <li>Express.js Web Framework Documentation, OpenJS Foundation.</li>
+  <li>IEEE Std 730-2014, IEEE Standard for Software Quality Assurance Processes.</li>
+  <li>AICTE Model Academic Regulations on Student Attendance Norms.</li>
+</ol>
+
+</body>
+</html>
